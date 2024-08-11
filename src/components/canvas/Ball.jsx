@@ -1,9 +1,10 @@
 import React, { Suspense, useState, useEffect } from 'react'
+import PropTypes from 'prop-types';
 import { Canvas } from '@react-three/fiber'
 import { Decal, Float, useTexture, OrbitControls, Preload } from '@react-three/drei'
 import CanvasLoader from '../Loader'
-const Ball = (props,{  isMobile }) => {
-  const [decal] = useTexture([props.imgUrl])
+const Ball = ({  imgUrl,isMobile }) => {
+  const [decal] = useTexture([imgUrl])
   return (
     <Float speed={isMobile ? 1.25 : 1.75} rotationIntensity={isMobile ? 0.75 : 1} floatIntensity={isMobile ? 1.5 : 2}>
       <ambientLight intensity={0.25} />
@@ -23,6 +24,11 @@ const Ball = (props,{  isMobile }) => {
   )
 }
 
+Ball.propTypes = {
+  imgUrl: PropTypes.string.isRequired,  // imgUrl is a required string
+  isMobile: PropTypes.bool.isRequired,  // isMobile is a required boolean
+};
+
 const BallCanvas = ({ icon }) => {
   const [isMobile, setIsMobile] = useState(false);
 
@@ -41,7 +47,7 @@ const BallCanvas = ({ icon }) => {
   }, []);
   return (
     <Canvas
-     frameLoop='demand' 
+     frameloop='demand' 
      dpr={isMobile ? [1, 1.5] : [1, 2]} 
      gl={{preserverDrawingBuffer: true}}
 
