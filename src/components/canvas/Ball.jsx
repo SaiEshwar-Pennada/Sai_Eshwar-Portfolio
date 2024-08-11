@@ -1,20 +1,20 @@
-import React, { Suspense} from 'react'
+import React, { Suspense, useState, useEffect } from 'react'
 import { Canvas } from '@react-three/fiber'
 import { Decal, Float, useTexture, OrbitControls, Preload } from '@react-three/drei'
 import CanvasLoader from '../Loader'
-const Ball = (props) => {
+const Ball = (props,{  isMobile }) => {
   const [decal] = useTexture([props.imgUrl])
   return (
-    <Float speed={1.75} rotationIntensity={1} floatIntensity={2}>
+    <Float speed={isMobile ? 1.25 : 1.75} rotationIntensity={isMobile ? 0.75 : 1} floatIntensity={isMobile ? 1.5 : 2}>
       <ambientLight intensity={0.25} />
       <directionalLight position={[0, 0, 0.05]} />
-      <mesh castShadow receiveShadow scale={2.75}>
+      <mesh castShadow receiveShadow scale={isMobile ? 2 : 2.75}>
         <sphereGeometry args={[1, 32, 32]} />
         <meshStandardMaterial color='#fff8eb' polygonOffset polygonOffsetFactor={-5} flatShading />
         <Decal
           position={[0, 0, 1]}
           rotation={[2 * Math.PI, 0, 6.25]}
-          scale={1}
+          scale={isMobile ? 0.8 : 1}
           map={decal}
           flatShading
         />
@@ -24,16 +24,31 @@ const Ball = (props) => {
 }
 
 const BallCanvas = ({ icon }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(max-width: 500px)');
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQueryChange = (event) => {
+      setIsMobile(event.matches);
+    };
+
+    mediaQuery.addEventListener('change', handleMediaQueryChange);
+    return () => {
+      mediaQuery.removeEventListener('change', handleMediaQueryChange);
+    };
+  }, []);
   return (
     <Canvas
      frameLoop='demand' 
-     dpr={[1, 2]} 
+     dpr={isMobile ? [1, 1.5] : [1, 2]} 
      gl={{preserverDrawingBuffer: true}}
 
     >
       <Suspense fallback={<CanvasLoader />}>
         <OrbitControls enableZoom={false}/>
-        <Ball imgUrl={icon} />
+        <Ball imgUrl={icon} isMobile={isMobile} />
       </Suspense>
       <Preload all />
     </Canvas>
