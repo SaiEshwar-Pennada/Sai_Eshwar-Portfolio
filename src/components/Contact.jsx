@@ -61,10 +61,14 @@ const Contact = () => {
     <div className='xl:mt-12 xl:flex-row flex-col-reverse flex gap-10 overflow-hidden'>
       <motion.div
         variants={slideIn('left', 'tween', 0.2, 1)}
-        className='flex-[0.75] bg-black-100 p-8 rounded-2xl'
+        className='flex-[0.75] bg-gradient-to-br from-[#181824] via-[#232631] to-[#2e225a] p-8 rounded-2xl shadow-2xl border border-[#2e225a]/40 backdrop-blur-md'
       >
-        <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadText}>Contact.</h3>
+        <p className={`${styles.sectionSubText} tracking-widest text-gradient bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent`}>
+          Get in touch
+        </p>
+        <h3 className={`${styles.sectionHeadText} mb-2 bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent drop-shadow-lg`}>
+          Contact.
+        </h3>
 
         <form
           ref={formRef}
@@ -79,7 +83,7 @@ const Contact = () => {
               value={form.name}
               onChange={handleChange}
               placeholder="What's your good name?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium'
+              className='bg-black/40 py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border border-transparent focus:border-blue-400 focus:ring-2 focus:ring-blue-400/40 font-medium transition-all duration-300 shadow-inner hover:shadow-lg'
             />
           </label>
           <label className='flex flex-col'>
@@ -90,7 +94,7 @@ const Contact = () => {
               value={form.email}
               onChange={handleChange}
               placeholder="What's your web address?"
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium'
+              className='bg-black/40 py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border border-transparent focus:border-purple-400 focus:ring-2 focus:ring-purple-400/40 font-medium transition-all duration-300 shadow-inner hover:shadow-lg'
             />
           </label>
           <label className='flex flex-col'>
@@ -101,15 +105,33 @@ const Contact = () => {
               value={form.message}
               onChange={handleChange}
               placeholder='What you want to say?'
-              className='bg-tertiary py-4 px-6 placeholder:text-secondary text-white rounded-lg outlined-none border-none font-medium'
+              className='bg-black/40 py-4 px-6 placeholder:text-secondary text-white rounded-lg outline-none border border-transparent focus:border-pink-400 focus:ring-2 focus:ring-pink-400/40 font-medium transition-all duration-300 shadow-inner hover:shadow-lg resize-none'
             />
           </label>
 
           <button
             type='submit'
-            className='bg-tertiary py-3 px-8 rounded-xl outline-none w-fit text-white font-bold shadow-md shadow-primary'
+            className='relative overflow-hidden bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500 py-3 px-10 rounded-xl outline-none w-fit text-white font-bold shadow-xl border-2 border-transparent transition-all duration-300 hover:from-purple-500 hover:to-blue-500 hover:scale-105 hover:shadow-2xl hover:border-blue-300 active:scale-95 group'
           >
-            {loading ? 'Sending...' : 'Send'}
+            <span className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-all duration-500 bg-gradient-to-r from-pink-400 via-blue-400 to-purple-500 blur-lg"></span>
+            <span className="relative z-10 flex items-center gap-2">
+              {loading ? (
+                <>
+                  <svg className="animate-spin h-5 w-5 text-white" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"></path>
+                  </svg>
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <svg width="22" height="22" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" className="mr-2" viewBox="0 0 24 24">
+                    <path d="M12 5v14M19 12l-7 7-7-7"/>
+                  </svg>
+                  Send
+                </>
+              )}
+            </span>
           </button>
         </form>
       </motion.div>

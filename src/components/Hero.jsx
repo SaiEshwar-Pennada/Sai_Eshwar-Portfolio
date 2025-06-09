@@ -15,11 +15,32 @@ const Hero = () => {
         </div>
         <div>
           <h1 className={`${styles.heroHeadText} text-white`}>
-            Hi, I'm <span className='text-[#915eff]'>Sai Eshwar</span>
+            Hi, I'm{" "}
+            <motion.span
+              className="inline-block font-extrabold"
+              initial={{ backgroundPosition: "0% 50%" }}
+              animate={{ backgroundPosition: "100% 50%" }}
+              transition={{
+                repeat: Infinity,
+                repeatType: "reverse",
+                duration: 2.5,
+                ease: "linear",
+              }}
+              style={{
+                background: "linear-gradient(90deg, #915eff, #60a5fa, #f472b6, #915eff)",
+                backgroundSize: "200% 200%",
+                WebkitBackgroundClip: "text",
+                WebkitTextFillColor: "transparent",
+                backgroundClip: "text",
+                textFillColor: "transparent",
+              }}
+            >
+              Sai Eshwar
+            </motion.span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-          Enthusiastic engineering graduate with hands-on experience in application-based technical support and foundational programming skills.  
-          Eager to explore new opportunities, enhance my expertise, and contribute to building efficient, user-focused solutions.
+            Enthusiastic engineering graduate with hands-on experience in application-based technical support and foundational programming skills.  
+            Eager to explore new opportunities, enhance my expertise, and contribute to building efficient, user-focused solutions.
           </p>
         </div>
       </div>
