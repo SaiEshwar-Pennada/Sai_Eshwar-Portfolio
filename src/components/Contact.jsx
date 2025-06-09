@@ -30,7 +30,7 @@ const Contact = () => {
     e.preventDefault();
     setLoading(true);
 
-    emailjs.send('service_kh5bjtb','template_qs05syg',
+    emailjs.send('service_628qhtp','template_ap3vxpi',
       {
         from_name: form.name,
         to_name: 'Pennada Sai Eshwar',
@@ -38,16 +38,16 @@ const Contact = () => {
         to_email: 'pennadasaieshwar@gmsil.com',
         message: form.message,
       },
-      'eU7XG8rucRbVaBP1X'
+      'HDxWr2P93zbP0Eox_'
     )
       .then(() => {
         setLoading(false)
         alert('Thank you. I will get back to you as soon as possible.')
 
         setForm({
-          name: '',
+          name: '', 
           email: '',
-          message: ''
+          message: '',
         })
       }, (error) => {
         setLoading(false)

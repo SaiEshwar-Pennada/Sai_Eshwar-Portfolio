@@ -18,8 +18,8 @@ const Hero = () => {
             Hi, I'm <span className='text-[#915eff]'>Sai Eshwar</span>
           </h1>
           <p className={`${styles.heroSubText} mt-2 text-white-100`}>
-          Enthusiastic undergraduate with a strong foundation in theoretical web development,  <br className='sm:block hidden' />
-          Eager to create innovative and user-friendly Applications.
+          Enthusiastic engineering graduate with hands-on experience in application-based technical support and foundational programming skills.  
+          Eager to explore new opportunities, enhance my expertise, and contribute to building efficient, user-focused solutions.
           </p>
         </div>
       </div>

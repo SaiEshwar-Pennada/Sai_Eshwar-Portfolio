@@ -40,6 +40,7 @@ import Ai from "./Ai.png";
 import Img_cov from "./Img_Cov.jpeg";
 import my_photo from "./my_photo.jpg";
 import Resume from "./Resume.pdf"
+import Cosec_logo from "./Cosec_logo.png"
 /*import carrent from "./carrent.png";
 import jobit from "./jobit.png";
 import tripguide from "./tripguide.png";*/
@@ -87,4 +88,5 @@ export {
   Musik,
   Find_my_kraft,
   Img_cov,
+  Cosec_logo,
 };

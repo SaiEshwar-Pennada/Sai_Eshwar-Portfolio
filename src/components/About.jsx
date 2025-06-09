@@ -30,11 +30,11 @@ const About = () => {
       </motion.div>
       <div className="flex flex-col lg:flex-row items-center lg:items-start gap-10">
         <motion.p variants={fadeIn("", "", 0.1, 1)} className="mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]">
-        As a recent engineering graduate with a passion for renewable energy, 
-        I am seeking an entry-level position where I can leverage my foundational knowledge in Python,
-        machine learning, and web development (React, HTML, CSS, JavaScript). 
-        My skills also include proficiency in MS Office tools and Power BI, which support effective data analysis and visualization.
-        I am eager to contribute to sustainable projects and grow within the renewable energy industry by applying my technical expertise and commitment to environmental sustainability.
+        I’m a motivated and detail-oriented engineering graduate with hands-on experience in technical support and software application services. I have a decent foundation in programming languages such as Python, JavaScript, HTML, CSS, and React.js, and enjoy applying these skills to solve practical problems and build efficient solutions.
+
+I’m familiar with tools and technologies like Google Colab, Visual Studio, Power BI, and the MS Office Suite, as well as working with databases including MySQL and SQL Server. I also possess foundational knowledge of version control systems like Git and Git Bash, and I’m continuously working to strengthen my technical toolkit.
+
+In addition to my technical abilities, I bring strong soft skills such as problem-solving, adaptability, effective communication, team collaboration, and time management. I'm enthusiastic about exploring new opportunities that challenge me to grow, expand my skill set, and contribute meaningfully to a company’s success through technology-driven innovation.
         </motion.p>
 
         <Tilt

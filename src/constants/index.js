@@ -27,12 +27,17 @@ import {
     Find_my_kraft,
     Ai,
     Img_cov,
+    Cosec_logo,
   } from "../assets";
   
   export const navLinks = [
     {
       id: "about",
       title: "About",
+    },
+    {
+      id: "experience",
+      title: "Experience",
     },
     {
       id: "work",
@@ -107,10 +112,26 @@ import {
     },
     {
       name: "powerbi",
-      icon: powerbi,
+      icon: powerbi, 
     },
   ];
-  
+  const experience = [
+    {
+      title: "Associate Technical Support Engineer",
+      company_name: "vigilant Technologie's",
+      icon: Cosec_logo,
+      iconBg: "#E6DEDD",
+      date: "Aug 2024 - Mar 2025",
+      points: [
+        "Provided remote technical support for Access Control & Time-Attendance (ACTA) systems",
+        "Resolved biometric issues using Matrix Telecom & Security software",
+        "Handled database operations using MSSQL and SSMS for data management.",
+        "Supported system integration and ensured smooth software performance."
+
+      ],
+    },
+  ]
+
   const education = [
     {
       title: "Malla Reddy College of Engineering and Technology",
@@ -275,4 +296,4 @@ import {
     },
   ];
   
-  export { services, technologies, projects,education};
+  export { services, technologies, projects,education, experience };
